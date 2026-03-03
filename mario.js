@@ -6,6 +6,8 @@ let intervalo;
 let time = 0;
 let jogoAtivo = true;
 let divTempo = document.querySelector('.time')
+let pontos = 0;
+const divPontos = document.querySelector('.pontos');
 
 const espadachim = document.querySelector('.espadachim'); // acha o espadachim
 const pedras = document.querySelector('.pedras'); // acha o cano
@@ -20,13 +22,20 @@ console.log('Nuvem:', nuvem);
 console.log('Tela de Fim:', telaFim);
 console.log('Botão:', botaoReiniciar);
 
-function contarTempo(){
-    intervalo = setInterval(function(){
-        time++;
-        divTempo.innerHTML = `${time}` 
-        console.log(time);
+function contarTempo() {
+    clearInterval(intervalo); // evita criar vários intervalos
+
+    intervalo = setInterval(function() {
+        if (jogoAtivo) {
+            pontos++;
+            divPontos.innerHTML = pontos;
+            console.log("Pontos:", pontos);
+        }
     }, 1000);
 }
+
+contarTempo();
+
 
 
 function pular() {
@@ -67,7 +76,7 @@ let loopdoJogo = setInterval(function(){
     let posicaoEspadachim = +window.getComputedStyle(espadachim).bottom.replace('px', '');
 
     console.log('cano:', posicaoPedras, 'Espadachim:', posicaoEspadachim);
-    if (posicaoPedras <= 100 && posicaoPedras > 0 && posicaoEspadachim < 60) {
+    if (posicaoPedras <= 19 && posicaoPedras > 0 && posicaoEspadachim < 60) {
         console.log('=== COLISÃO DETECTADA ===');
         console.log('Pedras na posição', posicaoPedras);
         console.log('Espadachim na posição', posicaoEspadachim);
@@ -95,6 +104,8 @@ let loopdoJogo = setInterval(function(){
         //parar  o loop
 
         clearInterval(loopdoJogo);
+        clearInterval(intervalo);
+        jogoAtivo = false;
 
 
     }
@@ -150,4 +161,8 @@ let loopdoJogo = setInterval(function(){
 botaoReiniciar.addEventListener('click', function() {
     console.log('Botão Reiniciar Clicado!');
     location.reload();
+    pontos = 0;
+    divPontos.innerHTML = 0;
+    jogoAtivo = true;
+    contarTempo();
 });

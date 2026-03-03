@@ -34,6 +34,33 @@
     top: 693px;
 }
 
+/* ============================= */
+/*   ESTILO DA PONTUAÇÃO        */
+/* ============================= */
+
+.pontos {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+
+    font-family: 'Press Start 2P', cursive;
+    font-size: 28px;
+
+    color: #ffffff;
+    text-shadow: 
+        2px 2px 0px #000,
+        4px 4px 0px #ff0000;
+
+    background: rgba(0, 0, 0, 0.4);
+    padding: 15px 20px;
+    border-radius: 10px;
+
+    border: 3px solid #ffffff;
+
+    letter-spacing: 2px;
+
+    z-index: 1000;
+}
 /* ================================================== */
 /* PERSONAGEM - Mario */
 /* ================================================== */
@@ -56,7 +83,7 @@
     width: 500px;           /* Nuvem bem grande */
     position: absolute;
     animation: mexerNuvem 20s infinite linear; /* Mais lenta (fundo) */
-    z-index: 1000;
+    
 }
 
 .cenario{
