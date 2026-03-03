@@ -12,8 +12,8 @@
 /* ================================================== */
 .jogo {
     width: 100%;            /* Ocupa toda largura */
-    height: 400px;          /* Altura fixa */
-    border-bottom: 50px solid green; /* Cria o chão */
+    height: 900px;          /* Altura fixa */
+    border-bottom: 50px solid rgb(137, 148, 135); /* Cria o chão */
     margin: 0 auto;         /* Centraliza */
     position: relative;     /* IMPORTANTE: elementos com position:absolute ficam DENTRO */
     overflow: hidden;       /* Esconde o que sai da tela */
@@ -23,27 +23,30 @@
 /* ================================================== */
 /* OBSTÁCULO - Cano que vem da direita */
 /* ================================================== */
-.cano {
+.pedras {
     position: absolute;     /* Pode ser posicionado livremente */
     bottom: 0;              /* Colado no chão */
-    width: 60px;            /* Largura do cano */
+    width: 400px;            /* Largura do cano */
 
     /* ANIMAÇÃO: nome | duração | repetição | velocidade */
-    animation: mexerCano 1.5s infinite linear;
+    animation: mexerPedras 1.5s infinite linear;
+    z-index: 1000;
+    top: 693px;
 }
 
 /* ================================================== */
 /* PERSONAGEM - Mario */
 /* ================================================== */
-.mario {
+.espadachim {
     width: 130px;           /* Tamanho do Mario */
     position: absolute;     /* Posicionamento livre */
     bottom: 0;              /* Começa no chão */
+    z-index: 1000;
 }
 
 /* Classe que faz o Mario pular (ativada pelo JavaScript) */
 .pular {
-    animation: pularMario 500ms ease-out;
+    animation: pularEspadachim 500ms ease-out;
 }
 
 /* ================================================== */
@@ -53,6 +56,14 @@
     width: 500px;           /* Nuvem bem grande */
     position: absolute;
     animation: mexerNuvem 20s infinite linear; /* Mais lenta (fundo) */
+    z-index: 1000;
+}
+
+.cenario{
+    width: 5500px;
+    position: absolute;
+    animation: cenario 10s infinite linear;
+    top: -764px;
 }
 
 /* ================================================== */
@@ -101,7 +112,7 @@
 /* ================================================== */
 
 /* Cano se move da direita para esquerda */
-@keyframes mexerCano {
+@keyframes mexerPedras {
     from {
         right: -60px;       /* Começa fora da tela à direita */
     }
@@ -111,7 +122,7 @@
 }
 
 /* Mario sobe e desce */
-@keyframes pularMario {
+@keyframes pularEspadachim {
     0% { bottom: 0; }       /* No chão */
     50% { bottom: 200px; }  /* Lá em cima */
     100% { bottom: 0; }     /* Volta ao chão */
@@ -121,6 +132,15 @@
 @keyframes mexerNuvem {
     from {
         right: -500px;      /* Começa fora */
+    }
+    to {
+        right: 100%;        /* Atravessa a tela */
+    }
+}
+
+@keyframes cenario {
+    from {
+        right: -7000px;      /* Começa fora */
     }
     to {
         right: 100%;        /* Atravessa a tela */
@@ -137,6 +157,6 @@
 
     .cano {
         width: 45px;        /* Cano menor */
-        animation: mexerCano 1.2s infinite linear; /* Mais rápido */
+        animation: mexerPedras 1.2s infinite linear; /* Mais rápido */
     }
 }

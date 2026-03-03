@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mario Jump - Aprenda Programar</title>
+    <title>Espadachim Jump - Aprenda Programar</title>
     <link rel="stylesheet" href="style.css">
     <script src="./mario.js" defer></script>
 </head>
@@ -13,15 +13,18 @@
     <!-- AREA PRINCIPAL DO JOGO - Tudo acontece aqui dentro -->
     <!-- ================================================== -->
     <div class="jogo">
+        <div class="time"></div>
 
-        <!-- PERSONAGEM - Mario que vai pular -->
-        <img src="./img/mario.gif" class="mario" alt="Mario">
+        <!-- PERSONAGEM - Espadachim que vai pular -->
+        <img src="./img/correndo.gif" class="espadachim" alt="Espadachim">
 
         <!-- OBSTACULO - Cano que o Mario precisa pular -->
-        <img src="./img/pipe.png" class="cano" alt="Cano">
+        <img src="./img/pedras.svg" class="pedras" alt="Pedras">
 
         <!-- FUNDO - Nuvem que se move devagar -->
         <img src="./img/nuvem.png" class="nuvem" alt="Nuvem">
+
+        <img src="./img/predios.svg" class="cenario"  alt="">
 
         <!--
             PARA ADICIONAR MOEDA:
@@ -31,7 +34,7 @@
     </div>
 
     <!-- ================================================== -->
-    <!-- TELA DE GAME OVER - Aparece quando o Mario bate -->
+    <!-- TELA DE GAME OVER - Aparece quando o Espadachim bate -->
     <!-- ================================================== -->
     <div class="fim">
         <button class="reiniciar">JOGAR NOVAMENTE</button>
